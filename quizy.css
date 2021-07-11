@@ -1,0 +1,107 @@
+    /*classsの並べ替え、後に書いたものが優先されるので全体に当たるものは前にする。*/
+
+    .maintaitol {
+        text-align: center;
+    }
+    
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        vertical-align: middle;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 567px;
+    }
+
+    .box {
+        width: 100%;
+        text-align: #FD6647;
+        
+    }
+
+    .mondai {
+        background: linear-gradient(transparent 70%, yellow 50%);
+        display: inline-block;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        /*イメージは指定しないと元の大きさになる*/
+    }
+    .btn {
+        width: 567px;
+        margin: auto;
+    }
+
+    .uls {
+        list-style: none;
+        /* padding-left: 0;
+        padding-right: 0; */
+        
+    }
+
+    .red {
+        color: white;
+        background-color: #FD6647;
+    }
+
+    .blue {
+        color: white;
+        background-color: #08B3F0;
+    }
+
+    
+
+    .tigai {
+        background: linear-gradient(transparent 70%, #FD6647 50%);
+        display: inline-block;
+        font-weight: 800;
+    }
+
+    .yes {
+        background: linear-gradient(transparent 70%, #08B3F0 50%);
+        display: inline-block;
+        font-weight: 800;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    .cantclick {
+        pointer-events: none;
+    }
+
+    li {
+        font-weight: 800;
+        text-align: left;
+        padding: 13px;
+        border: 1px solid #ebebeb;
+        border-bottom: solid 4px #ebebeb;
+        box-shadow: 1px 2px 2px -2px;
+        display: block;
+        margin-top: 2;
+        margin-bottom: 2;
+    }
+
+    .hako {
+        font-weight: 800;
+        text-align: left;
+        padding: 13px;
+        border: 1px solid #ebebeb;
+        box-shadow: 1px 2px 2px -2px;
+        margin: auto;
+    }
+
+   .fonto{
+    font-weight: 200;
+    line-height: 3;
+   }
+   
+   .gyou{
+    line-height: 100;   
+   }
+   
