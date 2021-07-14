@@ -1,3 +1,7 @@
+<?php
+var_dump(phpinfo());
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
