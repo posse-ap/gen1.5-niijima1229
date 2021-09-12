@@ -14,45 +14,85 @@ USE quizy;
 --
 -- テーブルの構造 `tokyo`
 --
-DROP TABLE IF EXISTS quiz;
-CREATE TABLE quiz (
+
+DROP TABLE IF EXISTS questions;
+CREATE TABLE questions (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  quiz_title_number int NOT NULL,
-  question_number int NOT NULL,
-  question varchar(30) NOT NULL,
-  choice_1 varchar(30) NOT NULL,
-  choice_2 varchar(30) NOT NULL,
-  choice_3 varchar(30) NOT NULL
+  name VARCHAR(140) NOT NULL
 );
 
---
--- テーブルのデータのダンプ `tokyo`
---
+DROP TABLE IF EXISTS choices;
+CREATE TABLE choices (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  question_id INT NOT NULL,
+  question_number INT NOT NULL,
+  name VARCHAR(140) NOT NULL,
+  valid BOOL NOT NULL
+);
 
--- quiz被り、
--- 問題文と選択肢のテーブルを分けた
--- 選択肢が３つ以外だとこの設計は耐えられない
--- question＿numberと紐づいた
+INSERT INTO questions (name) VALUES
+('ガチで東京の人しか解けない！＃東京の難読地名クイズ'),
+('ガチで広島の人しか解けない！＃広島の難読地名クイズ');
 
-INSERT INTO quiz (quiz_title_number, question_number, question, choice_1, choice_2, choice_3) VALUES
-(1, 1, '高輪',   'たかなわ',   'たかわ',     'こうわ'),
-(1, 2, '亀戸',   'かめいど',   'かめと',     'かめど'),
-(1, 3, '麹町',   'こうじまち',  'おかとまち', 'かゆまち'),
-(1, 4, '御成門', 'おなりもん',  'おかどもん', 'ごせいもん'),
-(1, 5, '等々力', 'とどろき',    'たたら',    'たたりき'),
-(1, 6, '石神井', 'しゃくじい',  'せきこうい', 'いじい'),
-(1, 7, '雑色',   'ぞうしき',   'ざっしき',   'ざっしょく'),
-(1, 8, '御徒町', 'おかちまち',  'みとちょう', 'ごしろちょう'),
-(1, 9, '鹿骨',   'ししぼね',    'しこね',    'ろっこつ'),
-(1, 10, '小榑',  'こぐれ',     'こばく',     'こしゃく'),
-(2, 1, '向洋', 'むかいなだ', 'むきひら', 'むこうひら'),
-(2, 2, '御調', 'みつぎ', 'みよし', 'おしらべ'),
-(2, 3, '銀山', 'かなやま', 'ぎんざん', 'きやま'),
-(2, 4, '十四日', 'とよひ', 'とよか', 'としか'),
-(2, 5, '石畦', 'いしぐろ', 'いしあぜ', 'しゃくぜ'),
-(2, 6, '三次', 'みよし', 'みつぎ', 'みかた'),
-(2, 7, '雲通', 'うずい', 'くもおり', 'もみち'),
-(2, 8, '李', 'すもも', 'でこぽん', 'ぽんかん'),
-(2, 9, '大内越峠', 'おおちごとうげ', 'おうちごとうげ', 'おおちごえとうげ'),
-(2, 10, '丁保余原', 'よおろほよばら', 'ていぼよはら', 'てっぽよばら');
-COMMIT;
+INSERT INTO choices (question_id, question_number, name, valid) VALUES
+(1, 1, 'たかなわ', TRUE),
+(1, 1, 'たかわ', FALSE),
+(1, 1, 'こうわ', FALSE),
+(1, 2, 'かめいど', TRUE),
+(1, 2, 'かめと', FALSE),
+(1, 2, 'かめど', FALSE),
+(1, 3, 'こうじまち', TRUE),
+(1, 3, 'かゆまち', FALSE),
+(1, 3, 'おかとまち', FALSE),
+(1, 4, 'おなりもん', TRUE),
+(1, 4, 'おかどもん', FALSE),
+(1, 4, 'ごせいもん', FALSE),
+(1, 5, 'とどろき', TRUE),
+(1, 5, 'たたら', FALSE),
+(1, 5, 'たたりき', FALSE),
+(1, 6, 'しゃくじい', TRUE),
+(1, 6, 'せきこうい', FALSE),
+(1, 6, 'いじい', FALSE),
+(1, 7, 'ぞうしき', TRUE),
+(1, 7, 'ざっしき', FALSE),
+(1, 7, 'ざっしょく', FALSE),
+(1, 8, 'おかちまち', TRUE),
+(1, 8, 'みとちょう', FALSE),
+(1, 8, 'ごしろちょう', FALSE),
+(1, 9, 'ししぼね', TRUE),
+(1, 9, 'しこね', FALSE),
+(1, 9, 'ろっこつ', FALSE),
+(1, 10, 'こぐれ', TRUE),
+(1, 10, 'こばく', FALSE),
+(1, 10, 'こしゃく', FALSE),
+(2, 1, 'むかいなだ', TRUE),
+(2, 1, 'むきひら', FALSE),
+(2, 1, 'むこうひら', FALSE),
+(2, 2, 'みつぎ', TRUE),
+(2, 2, 'みよし', FALSE),
+(2, 2, 'おしらべ', FALSE),
+(2, 3, 'かなやま', TRUE),
+(2, 3, 'ぎんざん', FALSE),
+(2, 3, 'きやま', FALSE),
+(2, 4, 'とよひ', TRUE),
+(2, 4, 'とよか', FALSE),
+(2, 4, 'としか', FALSE),
+(2, 5, 'いしぐろ', TRUE),
+(2, 5, 'いしあぜ', FALSE),
+(2, 5, 'しゃくぜ', FALSE),
+(2, 6, 'みよし', TRUE),
+(2, 6, 'みつぎ', FALSE),
+(2, 6, 'みかた', FALSE),
+(2, 7, 'うずい', TRUE),
+(2, 7, 'くもおり', FALSE),
+(2, 7, 'もみち', FALSE),
+(2, 8, 'すもも', TRUE),
+(2, 8, 'でこぽん', FALSE),
+(2, 8, 'ぽんかん', FALSE),
+(2, 9, 'おおちごとうげ', TRUE),
+(2, 9, 'おうちごとうげ', FALSE),
+(2, 9, 'おおちごえとうげ', FALSE),
+(2, 10, 'よおろほよばら', TRUE),
+(2, 10, 'ていぼよはら', FALSE),
+(2, 10, 'てっぽよばら', FALSE);
+
