@@ -1,3 +1,16 @@
+<?php
+
+require('./dbconnect.php');
+
+require('./learning_language_data.php');
+
+
+require('./learning_content_data.php');
+
+
+?>
+
+
 google.charts.load("current", {
   packages: ["corechart"]
 });
@@ -16,20 +29,24 @@ function draw_lang_chart() {
 
   var data = google.visualization.arrayToDataTable([
     ['language', 'Hours per Day'],
-    ['javascript', 10],
-    ['css', 20],
-    ['php', 5],
-    ['html', 30],
-    ['laravel', 5],
-    ['sql', 20],
-    ['shell', 20],
-    ['others', 10]
+    <?php foreach($learning_languages as $learning_language) : ?>
+      ['<?= $learning_language["name"] ?>' , <?= $learning_language["language_learning_time"]/$language_total_time*100 ?>]
+      <?php if($learning_language!== end($learning_languages)) : ?>
+        <?= ',';?>
+      <?php endif; ?>
+    <?php endforeach; ?>
   ]);
 
   var options = {
     pieHole: 0.5,
     legend: 'none',
-    colors: ['#2A54EF', '#1B71BD', '#21BDDE', '#3DCEFD', '#B39EF3', '#6D47EC', '#4A18EF', '#3107BF'],
+    colors: [
+      <?php foreach($learning_languages as $learning_language) : ?>
+        '<?php  echo strval($learning_language["color"])?>'
+        <?php if($learning_language!== end($learning_languages)) : ?>
+          <?= ',';?>
+        <?php endif; ?>
+      <?php endforeach; ?>],
     width: '100%',
     height: '254',
     chartArea: {
@@ -59,16 +76,26 @@ function draw_lang_chart() {
 
 function draw_cont_chart() {
   var data = google.visualization.arrayToDataTable([
-    ['content', 'percent'],
-    ['N予備校', 40],
-    ['ドットインストール', 20],
-    ['課題', 40]
+    ['content', 'Hours per Day'],
+    <?php foreach($learning_contents as $learning_content) : ?>
+      ['<?= $learning_content["name"] ?>' , <?= $learning_content["content_learning_time"]/$content_total_time*100 ?>]
+      <?php if($learning_content!== end($learning_contents)) : ?>
+        <?= ',';?>
+      <?php endif; ?>
+    <?php endforeach; ?>
   ]);
 
   var options = {
     pieHole: 0.5,
     legend: 'none',
-    colors: ['#2A54EF', '#1B71BD', '#21BDDE'],
+    colors: [
+      <?php foreach($learning_contents as $learning_content) : ?>
+        '<?php  echo strval($learning_content["color"])?>'
+        <?php if($learning_content!== end($learning_contents)) : ?>
+          <?= ',';?>
+        <?php endif; ?>
+      <?php endforeach; ?>
+      ],
     width: '100%',
     height: '254',
     chartArea: {
@@ -103,10 +130,27 @@ function draw_var_chart() {
   var data = google.visualization.arrayToDataTable([
     ["day", "time"],
     <?php for($i =1; $i <=date('t'); $i++) : ?>
+      <?php 
+      $stmt = $db->query(
+      "SELECT learning_time 
+      FROM content_learning_records
+      WHERE DATE(learning_date) = DATE_FORMAT(now(), '%Y%m%$i');"
+      );
+
+      $content_month_time = $stmt->fetch(PDO::FETCH_COLUMN) ?: 0;
+
+      $stmt = $db->query(
+        "SELECT learning_time 
+        FROM language_learning_records
+        WHERE DATE(learning_date) = DATE_FORMAT(now(), '%Y%m%$i');"
+        );
+  
+      $language_month_time = $stmt->fetch(PDO::FETCH_COLUMN) ?: 0;
+      ?>
       <?php if($i != date('t')) : ?>
-        [<?php echo$i . ',' . 2?>], 
+        [<?php echo$i . ',' . $content_month_time + $language_month_time?>], 
       <?php else : ?>
-        [<?php echo $i . ',' . 2?>]
+        [<?php echo $i . ',' . $content_month_time + $language_month_time?>]
       <?php endif; ?>
     <?php endfor; ?>
   ]);

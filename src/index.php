@@ -30,17 +30,11 @@ $stmt = $db->query(
 
 $total_learning_time = $stmt->fetch(PDO::FETCH_COLUMN) ?: 0;
 
-$stmt = $db->query(
-    "SELECT learning_languages . name, SUM(learning_time) AS language_learning_time, color 
-    FROM language_learning_records 
-    JOIN learning_languages 
-    ON language_id = learning_languages . id 
-    GROUP BY language_id;"
-);
 
-$learning_languages = $stmt->fetchAll();
+require('./learning_language_data.php');
 
-var_dump($learning_languages[0]);
+
+require('./learning_content_data.php');
 
 ?>
 
@@ -95,17 +89,17 @@ var_dump($learning_languages[0]);
             <div class="studying_letter">
                 <div class="badge bg-white text-dark studying_card">
                     <p class="period">Today</p>
-                    <p class="time"><?= $today_learning_time; ?></p>
+                    <p class="time"><?= $content_today_total_time + $language_today_total_time; ?></p>
                     <p class="hour">hour</p>
                 </div>
                 <div class="badge bg-white text-dark studying_card">
                     <p class="period">Month</p>
-                    <p class="time"><?= $month_learning_time; ?></p>
+                    <p class="time"><?= $content_month_total_time + $language_month_total_time; ?></p>
                     <p class="hour">hour</p>
                 </div>
                 <div class="badge bg-white text-dark studying_card">
                     <p class="period">Total</p>
-                    <p class="time"><?= $total_learning_time; ?></p>
+                    <p class="time"><?= $content_total_time + $language_total_time; ?></p>
                     <p class="hour">hour</p>
                 </div>
             </div>
@@ -120,14 +114,9 @@ var_dump($learning_languages[0]);
                 <div id="donutchart_lang" class="doughnut_lang"></div>
 
                 <div class="kinds_lang_wrapper">
-                    <div><i class="fas fa-circle js_circle"></i>JavaScript</div>
-                    <div><i class="fas fa-circle css_circle"></i>CSS</div>
-                    <div><i class="fas fa-circle php_circle"></i>PHP</div>
-                    <div><i class="fas fa-circle html_circle"></i>HTML</div>
-                    <div><i class="fas fa-circle laravel_circle"></i>Laravel</div>
-                    <div><i class="fas fa-circle sql_circle"></i>SQL</div>
-                    <div><i class="fas fa-circle shell_circle"></i>SHELL</div>
-                    <div><i class="fas fa-circle wealth_circle"></i>情報システム基礎知識(その他)</div>
+                    <?php foreach ($learning_languages as $learning_language) : ?>
+                        <div><i class="fas fa-circle" style = 'color:<?= $learning_language['color']?>'></i><?= $learning_language['name']?></div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="badge bg-white text-dark l_a_card">
@@ -135,9 +124,9 @@ var_dump($learning_languages[0]);
                 <!-- <img src="./img/conteguraff.png" alt="言語" class="doughnut_lang"> -->
                 <div id="donutchart_cont" class="doughnut_lang"></div>
                 <div class="kinds_cont_wrapper">
-                    <div><i class="fas fa-circle dot_circle"></i>ドットインストール</div>
-                    <div><i class="fas fa-circle n_yobi_circle"></i>N予備校</div>
-                    <div><i class="fas fa-circle posse_circle"></i>POSSE課題</div>
+                    <?php foreach ($learning_contents as $learning_content) : ?>
+                        <div><i class="fas fa-circle" style = 'color:<?= $learning_content['color']?>'></i><?= $learning_content['name']?></div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -163,74 +152,24 @@ var_dump($learning_languages[0]);
                             <!-- <input id="demo001"  type="text" placeholder="クリックしてください"> -->
                             <h5>学習コンテンツ（複数選択可）</h5>
                             <div class="lang_cont_wrap">
-                                <!-- <div class="check_box_wrap"><input type="checkbox" class="check_box"><span>N予備校</span></div>
-                                    <div class="check_box_wrap"><input type="checkbox"><span>ドットインストール</span></div>
-                                    <div class="check_box_wrap"><input type="checkbox"><span>POSSE課題</span></div> -->
                                 <div class="checkbox-wrap">
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="cont" value="checkbox1" class="check_box">
-                                        <span>N予備校</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="cont" value="checkbox2" class="check_box">
-                                        <span>ドットインストール</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="cont" value="checkbox3" class="check_box">
-                                        <span>POSSE課題</span>
-                                    </label>
+                                    <?php foreach ($learning_contents as $learning_content) : ?>
+                                        <label class="check_box_wrap">
+                                            <input type="checkbox" name="cont" value="<?= $learning_content['content_id']?>" class="check_box">
+                                            <span><?= $learning_content['name']?></span>
+                                        </label>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <h5>学習言語（複数選択可）</h5>
                             <div class="kinds_lang_box_wrapper">
-                                <!-- <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>HTML</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>CSS</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>JavaScript</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>PHP</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>Laravel</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>SQL</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>SHELL</div>
-                                    <div class="check_box_wrap"><input type="checkbox" name="" id=""><span></span>情報システム基礎知識（その他）</div> -->
                                 <div class="checkbox-wrap">
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox1" class="check_box">
-                                        <span>HTML</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox2" class="check_box">
-                                        <span>CSS</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox3" class="check_box">
-                                        <span>JavaScript</span>
-                                    </label>
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox4" class="check_box">
-                                        <span>PHP</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox5" class="check_box">
-                                        <span>Laravel</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox6" class="check_box">
-                                        <span>SQL</span>
-                                    </label>
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox7" class="check_box">
-                                        <span>SHELL</span>
-                                    </label>
-
-                                    <label class="check_box_wrap">
-                                        <input type="checkbox" name="lang" value="checkbox8" class="check_box">
-                                        <span>情報システム基礎知識（その他）</span>
-                                    </label>
+                                    <?php foreach ($learning_languages as $learning_language) : ?>
+                                        <label class="check_box_wrap">
+                                            <input type="checkbox" name="lang" value="<?= $learning_language['language_id']?>" class="check_box">
+                                            <span><?= $learning_language['name']?></span>
+                                        </label>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

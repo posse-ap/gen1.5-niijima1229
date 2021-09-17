@@ -67,7 +67,7 @@ INSERT INTO learning_languages (name, color) VALUES
 ('Laravel', '#B39EF3'),
 ('SQL', '#6D47EC'),
 ('SHELL', '#4A18EF'),
-('情報システム基礎知識', '#3107BF');
+('情報システム基礎知識(その他)', '#3107BF');
 
 INSERT INTO language_learning_records (user_id, language_id, learning_date, learning_time) VALUES
 (1, 1, '2021-09-17', 4),
@@ -125,3 +125,6 @@ INSERT INTO content_learning_records (user_id, content_id, learning_date, learni
 -- SELECT learning_languages . name, SUM(learning_time) AS language_learning_time, color FROM language_learning_records JOIN learning_languages ON language_id = learning_languages . id GROUP BY language_id;
 
 -- SELECT * FROM language_learning_records JOIN content_learning_records ON language_learning_records . user_id = content_learning_records . user_id;
+
+
+SELECT learning_contents . name, SUM(learning_time) AS content_learning_time, color FROM content_learning_records JOIN learning_contents ON content_id = learning_contents . id GROUP BY content_id;
