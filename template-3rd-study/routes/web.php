@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('quiz/{id?}', 'QuizyController@index');
 
-Route::get('hello', 'HelloController@index');
-Route::post('hello', 'HelloController@post');
 
-Route::get('quizy', 'QuizyController@index');
+Route::get('quiz_all', 'QuizAllController@index');
+

@@ -1,24 +1,21 @@
 <?php
 
-// $dsn = 'mysql:host=mysql;dbname=laravel;charset=utf8;';
-// $user = 'laravel';
-// $password = 'password';
+$dsn = 'mysql:host=mysql;dbname=laravel;charset=utf8;';
+$user = 'laravel';
+$password = 'password';
 
-// try {
-//     $db = new PDO($dsn, $user, $password);
-//     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//     echo '接続失敗: ' . $e->getMessage();
-//     exit();
-// }
+try {
+    $db = new PDO($dsn, $user, $password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo '接続失敗: ' . $e->getMessage();
+    exit();
+}
 
 $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
 
 // $stmt = $db->query('SELECT * FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id =' . $title_number);
 // $questions = $stmt->fetchAll();
-// echo $title_number;
-// var_dump($questions);
-// echo count(array_unique(array($questions[0]["question_number"], $questions[3]["question_number"])));
 
 ?>
 
@@ -29,44 +26,49 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php if ($title_number == 1) : ?>
+    <?php if ($id == 1) : ?>
         <title>ガチで東京の人しか解けない！＃東京の難読地名クイズ</title>
     <?php else : ?>
         <title>ガチで広島の人しか解けない！＃広島の難読地名クイズ</title>
     <?php endif; ?>
-    <link rel="stylesheet" href="quizy.css">
+    <link rel="stylesheet" href="{{ asset('/css/quizy.css') }}">
 </head>
 
 <body>
-    <?php if ($title_number == 1) : ?> 
+    <?php if ($id == 1) : ?> 
         <form action="" method="GET">
-            <a href="http://localhost/?question_id=2">クイズを変更する</a>
+            <a href="">クイズを変更する</a>
             <input type="hidden" name="question_id" value="2">
         </form>
     <?php else : ?>
         <form action="" method="GET">
-            <a href="http://localhost/?question_id=1">クイズを変更する</a>
+            <a href="">クイズを変更する</a>
             <input type="hidden" name="question_id" value="1">
         </form>
     <?php endif; ?>
 
-    <?php if ($title_number == 1) : ?>
+    <?php if ($id == 1) : ?>
         <h1 class="maintitle">ガチで東京の人しか解けない！＃東京の難読地名クイズ</h1>
     <?php else : ?>
         <h1 class="maintitle">ガチで広島の人しか解けない！＃広島の難読地名クイズ</h1>
     <?php endif; ?>
 
     <div class="center">
-    <?php for ($i = 1; $i <= 10; $i++) : ?>
+    @for ($i = 1; $i <= 2; $i++)
         <div class="box">
             <h2 class="mondai">
                 <?= $i . '. この地名はなんて読む？' ?>
             </h2>
-            <img src="./img/<?= $questions[$title_number]['question_id'] ?>/<?= $i -1?>.png" alt="写真" id="picture_<?= $questions[$title_number]["question_number"]?>">
+            <?=$id?>
+            {!! asset('/img/{$title_number}/{$i -1}.png') !!}
+            {!! asset('/img/<?=$id?>/0.png') !!}
+            <img src="asset('/img/{$id}/<?= $i -1?>.png')" alt="写真" id="picture_<?= $i?>">
             <div class="btn">
                 <?php 
-                $stmt2 = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id = ' . $title_number . ' AND question_number = ' . $i);
-                $choices = $stmt2->fetchAll();
+                // $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id = ' . $title_number . ' AND question_number = ' . $i);
+                $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id where question_id = 2 and question_number = ' . $i);
+                $choices = $stmt->fetchAll();
+                // $choices = DB::table('questions')->join('choices', 'questions.id', '=', 'choices_id')->where('question_id', '=', $id)->where('question_number', '=', $i)->get('choices.name','choices.valid');
                 $quiz_array = array($choices[0], $choices[1], $choices[2]);
                 shuffle($quiz_array);
                 $choices_result_0 = $quiz_array[0]['valid'];
@@ -90,9 +92,9 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
                 <p id = "description_<?= $i?>">正解は<?= $choices[0]["name"] ?>です。</p>
             </div>
         </div>
-    <?php endfor ?>
+    @endfor
     </div>
-    <script src="quizy.js"></script>
+    <script src="{{ asset('/js/quizy.js') }}"></script>
     
 </body>
 </html>
