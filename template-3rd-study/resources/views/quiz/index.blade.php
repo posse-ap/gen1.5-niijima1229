@@ -26,32 +26,12 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php if ($id == 1) : ?>
-        <title>ガチで東京の人しか解けない！＃東京の難読地名クイズ</title>
-    <?php else : ?>
-        <title>ガチで広島の人しか解けない！＃広島の難読地名クイズ</title>
-    <?php endif; ?>
+    <title>{{$title->name}}</title>
     <link rel="stylesheet" href="{{ asset('/css/quizy.css') }}">
 </head>
 
 <body>
-    <?php if ($id == 1) : ?> 
-        <form action="" method="GET">
-            <a href="">クイズを変更する</a>
-            <input type="hidden" name="question_id" value="2">
-        </form>
-    <?php else : ?>
-        <form action="" method="GET">
-            <a href="">クイズを変更する</a>
-            <input type="hidden" name="question_id" value="1">
-        </form>
-    <?php endif; ?>
-
-    <?php if ($id == 1) : ?>
-        <h1 class="maintitle">ガチで東京の人しか解けない！＃東京の難読地名クイズ</h1>
-    <?php else : ?>
-        <h1 class="maintitle">ガチで広島の人しか解けない！＃広島の難読地名クイズ</h1>
-    <?php endif; ?>
+        <h1 class="maintitle">{{$title->name}}</h1>
 
     <div class="center">
     @for ($i = 1; $i <= 2; $i++)
@@ -62,7 +42,8 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
             <?=$id?>
             {!! asset('/img/{$title_number}/{$i -1}.png') !!}
             {!! asset('/img/<?=$id?>/0.png') !!}
-            <img src="asset('/img/{$id}/<?= $i -1?>.png')" alt="写真" id="picture_<?= $i?>">
+            <!-- <img src="{!!asset('/img/{{$id}}/{{$i -1}}.png')!!}" alt="写真" id="picture_<?= $i?>"> -->
+            <img src="{!!asset('/img/1/0.png')!!}" alt="写真" id="picture_<?= $i?>">
             <div class="btn">
                 <?php 
                 // $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id = ' . $title_number . ' AND question_number = ' . $i);
