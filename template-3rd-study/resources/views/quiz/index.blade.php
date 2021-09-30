@@ -1,4 +1,4 @@
-<?php
+@php
 
 $dsn = 'mysql:host=mysql;dbname=laravel;charset=utf8;';
 $user = 'laravel';
@@ -12,12 +12,7 @@ try {
     exit();
 }
 
-$title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
-
-// $stmt = $db->query('SELECT * FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id =' . $title_number);
-// $questions = $stmt->fetchAll();
-
-?>
+@endphp
 
 
 <!DOCTYPE html>
@@ -31,7 +26,7 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
 </head>
 
 <body>
-        <h1 class="maintitle">{{$title->name}}</h1>
+    <h1 class="maintitle">{{$title->name}}</h1>
 
     <div class="center">
     @for ($i = 1; $i <= 2; $i++)
@@ -39,17 +34,11 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
             <h2 class="mondai">
                 <?= $i . '. この地名はなんて読む？' ?>
             </h2>
-            <?=$id?>
-            {!! asset('/img/{$title_number}/{$i -1}.png') !!}
-            {!! asset('/img/<?=$id?>/0.png') !!}
-            <!-- <img src="{!!asset('/img/{{$id}}/{{$i -1}}.png')!!}" alt="写真" id="picture_<?= $i?>"> -->
-            <img src="{!!asset('/img/1/0.png')!!}" alt="写真" id="picture_<?= $i?>">
+            <img src="/img/{{$id}}/{{$i -1}}.png" alt="写真" id="picture_<?= $i?>">
             <div class="btn">
-                <?php 
-                // $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id WHERE question_id = ' . $title_number . ' AND question_number = ' . $i);
-                $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id where question_id = 2 and question_number = ' . $i);
+                @php
+                $stmt = $db->query('SELECT choices . name, choices . valid FROM questions JOIN choices ON questions . id = choices . question_id where question_id = ' . $id . ' and question_number = ' . $i);
                 $choices = $stmt->fetchAll();
-                // $choices = DB::table('questions')->join('choices', 'questions.id', '=', 'choices_id')->where('question_id', '=', $id)->where('question_number', '=', $i)->get('choices.name','choices.valid');
                 $quiz_array = array($choices[0], $choices[1], $choices[2]);
                 shuffle($quiz_array);
                 $choices_result_0 = $quiz_array[0]['valid'];
@@ -63,7 +52,7 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
                 } else {
                     $choices_result_1 +=2;
                 }
-                ?>
+                @endphp
                 <p class="choices_box"><li id="choices_<?= $i?>_<?= $choices_result_0; ?>" class = "choices" onclick = "show_result(<?= $i?>,<?= $choices_result_0; ?>, this)"><?= $quiz_array[0]['name']; ?></li></p>
                 <p class="choices_box"><li id="choices_<?= $i?>_<?= $choices_result_1; ?>" class = "choices" onclick = "show_result(<?= $i?>,<?= $choices_result_1; ?>, this)"><?= $quiz_array[1]['name']; ?></li></p>
                 <p class="choices_box"><li id="choices_<?= $i?>_<?= $choices_result_2; ?>" class = "choices" onclick = "show_result(<?= $i?>,<?= $choices_result_2; ?>, this)"><?= $quiz_array[2]['name']; ?></li></p>
@@ -75,6 +64,7 @@ $title_number = isset($_GET["question_id"]) ? $_GET["question_id"] : 1;
         </div>
     @endfor
     </div>
+    
     <script src="{{ asset('/js/quizy.js') }}"></script>
     
 </body>

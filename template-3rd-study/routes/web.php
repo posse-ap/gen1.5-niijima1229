@@ -18,6 +18,6 @@ Route::get('/', function () {
 
 
 
-Route::get('quiz_all', 'QuizyController@index');
+Route::get('quiz', 'QuizyController@index');
 
 Route::get('quiz/{id?}', 'QuizyController@get');
