@@ -15,13 +15,61 @@ class QuestionsTableSeeder extends Seeder
     {
         DB::table('questions')->truncate();
         $param = [
-            'name' => 'ガチで東京の人しか解けない！＃東京の難読地名クイズ'
+            'title_id' => 1,
+            'question_number' => 1,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '1/0.png',
+            'commentary' => '正解はたかなわです。'
         ];
 
         DB::table('questions')->insert($param);
 
         $param = [
-            'name' => 'ガチで広島の人しか解けない！＃広島の難読地名クイズ'
+            'title_id' => 1,
+            'question_number' => 2,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '1/1.png',
+            'commentary' => '正解はかめいどです。'
+        ];
+
+        DB::table('questions')->insert($param);
+
+        $param = [
+            'title_id' => 1,
+            'question_number' => 3,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '1/2.png',
+            'commentary' => '正解はこうじまちです。'
+        ];
+
+        DB::table('questions')->insert($param);
+
+        $param = [
+            'title_id' => 2,
+            'question_number' => 1,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '2/0.png',
+            'commentary' => '正解はむかいなだです。'
+        ];
+
+        DB::table('questions')->insert($param);
+
+        $param = [
+            'title_id' => 2,
+            'question_number' => 2,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '2/1.png',
+            'commentary' => '正解はみつぎです。'
+        ];
+
+        DB::table('questions')->insert($param);
+
+        $param = [
+            'title_id' => 2,
+            'question_number' => 3,
+            'question_sentence' => 'この地名はなんて読む？',
+            'img' => '2/2.png',
+            'commentary' => '正解はかなやまです。'
         ];
 
         DB::table('questions')->insert($param);

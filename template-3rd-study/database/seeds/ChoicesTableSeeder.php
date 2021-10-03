@@ -16,8 +16,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->truncate();
         $param = [
             'question_id' => 1,
-            'question_number' => 1,
-            'name' => 'たかなわ',
+            'choice_name' => 'たかなわ',
             'valid' => true
         ];
 
@@ -25,8 +24,7 @@ class ChoicesTableSeeder extends Seeder
         
         $param = [
             'question_id' => 1,
-            'question_number' => 1,
-            'name' => 'たかわ',
+            'choice_name' => 'たかわ',
             'valid' => false
         ];
 
@@ -34,34 +32,7 @@ class ChoicesTableSeeder extends Seeder
 
         $param = [
             'question_id' => 1,
-            'question_number' => 1,
-            'name' => 'こうわ',
-            'valid' => false
-        ];
-
-        DB::table('choices')->insert($param);
-
-        $param = [
-            'question_id' => 1,
-            'question_number' => 2,
-            'name' => 'かめいど',
-            'valid' => true
-        ];
-
-        DB::table('choices')->insert($param);
-        $param = [
-            'question_id' => 1,
-            'question_number' => 2,
-            'name' => 'かめど',
-            'valid' => false
-        ];
-
-        DB::table('choices')->insert($param);
-
-        $param = [
-            'question_id' => 1,
-            'question_number' => 2,
-            'name' => 'かめと',
+            'choice_name' => 'こうわ',
             'valid' => false
         ];
 
@@ -69,57 +40,121 @@ class ChoicesTableSeeder extends Seeder
 
         $param = [
             'question_id' => 2,
-            'question_number' => 1,
-            'name' => 'むかいなだ',
+            'choice_name' => 'かめいど',
+            'valid' => true
+        ];
+
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => 2,
+            'choice_name' => 'かめど',
+            'valid' => false
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 2,
+            'choice_name' => 'かめと',
+            'valid' => false
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 3,
+            'choice_name' => 'こうじまち',
             'valid' => true
         ];
 
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => 2,
-            'question_number' => 1,
-            'name' => 'むきひら',
+            'question_id' => 3,
+            'choice_name' => 'おかとまち',
             'valid' => false
         ];
 
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => 2,
-            'question_number' => 1,
-            'name' => 'むこうひら',
+            'question_id' => 3,
+            'choice_name' => 'かゆまち',
             'valid' => false
         ];
 
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => 2,
-            'question_number' => 2,
-            'name' => 'みつぎ',
+            'question_id' => 4,
+            'choice_name' => 'むかいなだ',
+            'valid' => true
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 4,
+            'choice_name' => 'むきひら',
+            'valid' => false
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 4,
+            'choice_name' => 'むこうひら',
+            'valid' => false
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 5,
+            'choice_name' => 'みつぎ',
             'valid' => true,
         ];
 
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => 2,
-            'question_number' => 2,
-            'name' => 'みよし',
+            'question_id' => 5,
+            'choice_name' => 'みよし',
             'valid' => false,
         ];
 
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => 2,
-            'question_number' => 2,
-            'name' => 'おしらべ',
+            'question_id' => 5,
+            'choice_name' => 'おしらべ',
             'valid' => false,
         ];
 
         DB::table('choices')->insert($param);
 
+        $param = [
+            'question_id' => 6,
+            'choice_name' => 'かなやま',
+            'valid' => true,
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 6,
+            'choice_name' => 'ぎんざん',
+            'valid' => false,
+        ];
+
+        DB::table('choices')->insert($param);
+
+        $param = [
+            'question_id' => 6,
+            'choice_name' => 'きやま',
+            'valid' => false,
+        ];
+
+        DB::table('choices')->insert($param);
     }
 }

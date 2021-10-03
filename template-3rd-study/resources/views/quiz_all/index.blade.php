@@ -7,8 +7,8 @@
   <title>Document</title>
 </head>
 <body>
-  @foreach($questions as $question)
-  <a href="/quiz/{{$question->id}}">{{$question->name}}</a>
+  @foreach($titles as $title)
+  <a href="/quiz/{{$title->id}}">{{$title->title_name}}</a>
   <br>
   @endforeach
 </body>

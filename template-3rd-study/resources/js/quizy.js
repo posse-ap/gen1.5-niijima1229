@@ -3,15 +3,16 @@ function show_result(question_number, result, e) {
 
   document.getElementById(e.id).classList.add("red");
 
-  document.getElementById("choices_"+question_number+"_"+1).classList.remove("red");
-  document.getElementById("choices_"+question_number+"_"+1).classList.add("blue");
+  document.getElementById("choices_"+question_number+"_"+0).classList.remove("red");
+  document.getElementById("choices_"+question_number+"_"+0).classList.add("blue");
 
-  for(let i = 0;i < 3;i++){
-    // 一度押したら押せなくする
-    document.getElementById("choices_"+question_number+"_"+i).classList.add("cantclick");
-  }
+  var answerlists = document.getElementsByName("choice_"+question_number);
 
-  if(result == 1) {
+  answerlists.forEach(answerlist => {
+    answerlist.style.pointerEvents = 'none';
+});
+
+  if(result == 0) {
     document.getElementById("torf_" + question_number).innerHTML = "正解！";
     document.getElementById("torf_" + question_number).classList.add('yes');
 
