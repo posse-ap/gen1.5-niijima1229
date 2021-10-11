@@ -14,4 +14,5 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js').vue()
    .sass('resources/sass/app.scss', 'public/css')
    .js('resources/js/quizy.js', 'public/js').vue()
-   .sass('resources/sass/quizy.scss', 'public/css');
+   .sass('resources/sass/quizy.scss', 'public/css')
+   .sass('resources/sass/admin.scss', 'public/css');

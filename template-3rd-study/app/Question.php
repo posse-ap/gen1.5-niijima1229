@@ -8,6 +8,10 @@ class Question extends Model
 {
     protected $guarded = array('id');
 
+    public static $rules = array(
+        'title_id' => 'required'
+    );
+
     public function scopeIdEqual($query, $str)
     {
         return $query->where('question_number', $str);
