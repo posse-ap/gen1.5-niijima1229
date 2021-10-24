@@ -1,8 +1,3 @@
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-/*!*******************************!*\
-  !*** ./resources/js/quizy.js ***!
-  \*******************************/
 function show_result(question_number, result, e) {
   document.getElementById("result_box_" + question_number).style.display = "block";
   document.getElementById(e.id).classList.add("red");
@@ -21,5 +16,3 @@ function show_result(question_number, result, e) {
     document.getElementById("torf_" + question_number).classList.add('tigai');
   }
 }
-/******/ })()
-;

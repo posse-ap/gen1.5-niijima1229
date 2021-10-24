@@ -14,12 +14,12 @@ class Title extends Model
 
     public function scopeIdEqual($query, $str)
     {
-        return $query->where('id', $str);
+        return $query->where('id', $str)->orderBy('title_number', 'asc');
     }
 
     public function questions()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasMany('App\Question')->orderBy('question_number', 'asc');
     }
 
 }

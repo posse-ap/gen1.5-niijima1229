@@ -16,6 +16,7 @@ class CreateTitlesTable extends Migration
     {
         Schema::create('titles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('title_number');
             $table->string('title_name');
         });
     }

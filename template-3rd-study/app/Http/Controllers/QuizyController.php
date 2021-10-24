@@ -44,7 +44,7 @@ class Quizycontroller extends Controller
 
     public function titleIndex(Request $request)
     {
-        $titles = Title::all();
+        $titles = Title::orderBy('title_number', 'asc')->get();
         return view('admin.titles', ['titles' => $titles]);
     }
 

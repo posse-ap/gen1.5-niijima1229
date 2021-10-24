@@ -21,6 +21,7 @@
     @csrf
     <input type="hidden" name="id" value="{{$form->id}}">
     <input type="text" style="width:400px;" name="title_name" value="{{$form->title_name}}">
+    <input type="text" style="width:400px;" name="title_number" value="{{$form->title_number}}">
     <input type="submit" value="送信">
   </form>
   <p>このタイトルを削除する</p>
