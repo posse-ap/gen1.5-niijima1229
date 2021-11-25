@@ -29,3 +29,125 @@
 2021-11-20T13:56:50.853688-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
 2021-11-20T13:56:51.078674-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
 2021-11-20T13:56:51.079279-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2021-11-23T11:25:40.489655-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-23T11:25:40.502221-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-23T11:25:40.584528-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-23T11:25:44.079821-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-23T11:25:45.286226-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2021-11-23T11:25:45.406060-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2021-11-23T11:25:45.719805-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-23T11:25:45.721938-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-23T11:25:45.779585-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-23T11:25:45.780940-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-23T11:25:45.800614-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-23T11:25:45.997320-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-23T11:25:45.997601-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2021-11-25T06:53:42.217953-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.26).
+2021-11-25T06:53:44.717604-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.26)  MySQL Community Server - GPL.
+2021-11-25T10:58:52.812001-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-25T10:58:52.836352-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-25T10:58:52.953175-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-25T10:58:57.343384-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-25T10:58:59.257827-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-25T10:58:59.264150-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-25T10:58:59.328378-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-25T10:58:59.332973-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-25T10:58:59.355549-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-25T10:58:59.625634-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-25T10:58:59.625724-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2021-11-25T11:40:36.542504-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.26).
+2021-11-25T11:40:37.893114-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.26)  MySQL Community Server - GPL.
+2021-11-25T11:41:29.253728-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-25T11:41:29.449331-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-25T11:41:29.615124-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-25T11:41:40.785013-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-25T11:41:48.077925-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-25T11:41:48.092133-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-25T11:41:48.337758-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-25T11:41:48.340381-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-25T11:41:48.513254-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-25T11:41:49.791793-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-25T11:41:49.791959-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+2021-11-25T13:32:58.706362-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.26).
+2021-11-25T13:33:00.531706-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.26)  MySQL Community Server - GPL.
+2021-11-25T13:46:33.254745-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-25T13:46:33.270074-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-25T13:46:33.315404-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-25T13:46:36.082834-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-25T13:46:36.975174-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-25T13:46:36.976543-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-25T13:46:36.995199-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-25T13:46:36.996601-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-25T13:46:37.049633-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-25T13:46:37.536711-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-25T13:46:37.537322-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
