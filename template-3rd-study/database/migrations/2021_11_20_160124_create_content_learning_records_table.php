@@ -16,7 +16,7 @@ class CreateContentLearningRecordsTable extends Migration
         Schema::create('content_learning_records', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('content_id');
+            $table->integer('learning_content_id');
             $table->date('learning_date');
             $table->integer('learning_time');
             $table->timestamps();

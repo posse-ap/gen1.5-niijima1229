@@ -17,19 +17,19 @@ class ContentLearningRecordTableSeeder extends Seeder
         $params = [
             [
                 'user_id' => 1,
-                'content_id' => 1,
+                'learning_content_id' => 1,
                 'learning_date' => '2021-11-21',
                 'learning_time' => 2
             ],
             [
                 'user_id' => 1,
-                'content_id' => 2,
+                'learning_content_id' => 2,
                 'learning_date' => '2021-11-22',
                 'learning_time' => 3
             ],
             [
                 'user_id' => 1,
-                'content_id' => 3,
+                'learning_content_id' => 3,
                 'learning_date' => '2021-11-23',
                 'learning_time' => 4
             ]

@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{user_id?}', 'WebAppController@index');
+Route::get('/webapp/{user_id?}', 'WebAppController@index')->middleware('auth')->name('webapp');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
