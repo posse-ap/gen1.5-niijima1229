@@ -237,3 +237,361 @@ mbind: Operation not permitted
 2021-11-27T15:07:49.376930-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
 mbind: Operation not permitted
 mbind: Operation not permitted
+2021-11-27T16:19:03.354516-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.27).
+2021-11-27T16:19:06.109031-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.
+2021-11-28T10:28:58.060926-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2021-11-28T10:28:58.089887-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-28T10:28:58.170381-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-28T10:29:00.992504-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-28T10:29:01.912465-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-28T10:29:01.914206-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-28T10:29:01.943277-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-28T10:29:01.946122-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-28T10:29:01.963397-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-28T10:29:02.259894-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-28T10:29:02.260162-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+2021-11-28T15:20:27.674921-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.27).
+2021-11-28T15:20:28.770711-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.
+2021-11-29T12:01:04.182738-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2021-11-29T12:01:04.208051-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-29T12:01:04.337812-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-29T12:01:13.788144-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-29T12:01:17.005502-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-29T12:01:17.010566-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-29T12:01:17.099074-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-29T12:01:17.101447-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-29T12:01:17.150040-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-29T12:01:17.628035-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-29T12:01:17.628308-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+2021-11-30T07:09:43.185143-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.27).
+2021-11-30T07:09:45.358699-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.
+2021-12-02T11:16:12.423739-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2021-12-02T11:16:12.469453-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-12-02T11:16:12.640118-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-12-02T11:16:18.185137-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-12-02T11:16:21.743560-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-12-02T11:16:21.749814-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-12-02T11:16:21.872767-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-12-02T11:16:21.875600-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-12-02T11:16:21.925334-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-12-02T11:16:22.459861-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-12-02T11:16:22.460673-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+mbind: Operation not permitted
+2021-12-04T05:47:03.855455-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.27).
+2021-12-04T05:47:07.882490-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.
