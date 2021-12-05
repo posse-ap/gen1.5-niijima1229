@@ -1,18 +1,38 @@
-var done_btn = document.getElementById("r_p_done_btn");
-var form_modal = document.getElementById("default_modal");
-var loading_modal = document.getElementById("loading");
-var success_modal = document.getElementById("r_p_modal");
-let set_time_id = null;
-const content = document.getElementsByName("cont");
-const language = document.getElementsByName("lang");
-const twitter = document.getElementsByName("twitter");
+const submit_btn = document.getElementById("submit_btn");
+const modal_default = document.getElementById("modal_default");
+const modal_loading = document.getElementById("modal_loading");
+const modal_done = document.getElementById("modal_done");
+
+// submit_btn.addEventListener("click", submit_loading());
+
+function submit_loading() {
+    modal_default.style.display = "none";
+    modal_loading.style.display = "block";
+
+    setTimeout(() => show_done_modal(), 1000);
+}
+
+function show_done_modal() {
+    modal_loading.style.display = "none";
+    modal_done.style.display = "block";
+}
+
+
+
+// var done_btn = document.getElementById("r_p_done_btn");
+// var form_modal = document.getElementById("default_modal");
+// var loading_modal = document.getElementById("loading");
+// var success_modal = document.getElementById("r_p_modal");
+// let set_time_id = null;
+// const content = document.getElementsByName("cont");
+// const language = document.getElementsByName("lang");
+// const twitter = document.getElementsByName("twitter");
 
 
 //record_post_modal
 function loading() {
     form_modal.style.display = "none";
     loading_modal.style.display = "flex";
-    // r_p_loading.style.visibility="visible";
     set_time_id = setTimeout(success, 3000);
 };
 
@@ -28,12 +48,14 @@ function success() {
 
 var inner = document.getElementById("modal_inner")
 
-const modalArea = document.getElementById('modalArea');
-const openModal = document.getElementById('openModal');
-const openModal_s = document.getElementById('openModal-s');
-const closeModal = document.getElementById('closeModal');
-const modalBg = document.getElementById('modalBg');
-const modalParts = [openModal, openModal_s, closeModal, modalBg]; // これはArray
+// const modalArea = document.getElementById('modalArea');
+// const openModal = document.getElementById('openModal');
+// const openModal_s = document.getElementById('openModal-s');
+// const closeModal = document.getElementById('closeModal');
+// const modalBg = document.getElementById('modalBg');
+// const modalParts = [openModal, openModal_s, closeModal, modalBg];
+
+
 
 //↓モーダルを表示するスクリプト↓
 
