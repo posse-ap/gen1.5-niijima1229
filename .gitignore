@@ -12,3 +12,8 @@ template-3rd-study/npm-debug.log
 template-3rd-study/yarn-error.log
 
 posse-3rd-laravel-study_env/db/lib/mysql/#innodb_temp
+posse-3rd-laravel-study_env/db/var/*
+posse-3rd-laravel-study/node_modules
+posse-3rd-laravel-study/.env
+posse-3rd-laravel-study/vendor
+posse-3rd-laravel-study/public/storage
