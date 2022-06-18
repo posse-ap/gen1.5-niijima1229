@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-white shadow dark:bg-gray-800">
+      <div class="container px-6 py-3 mx-auto">
+        <div class="flex items-center justify-between">
+          <div>
+            <a
+              class="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
+              href="#"
+            >
+              <img
+                src="./header-logo.png"
+                alt="ヘッダーロゴ"
+                style="width: 128px; height: 64px"
+              />
+            </a>
+          </div>
+
+          <p>ログアウト</p>
+        </div>
+      </div>
+    </nav>
+    <main class="container px-6">
+      <p class="mt-5">ようこそ新島駿さん</p>
+      <div class="text-center">
+        <div class="max-w-xl mx-auto">
+          <div class="space-y-2 sm:space-y-0 sm:flex sm:-mx-1">
+            <button
+              class="w-full px-2 py-2 text-dark transition-colors duration-200 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 shadow focus:ring focus:ring-blue-300 focus:ring-opacity-40 font-bold"
+            >
+              全て
+            </button>
+
+            <button
+              class="w-full px-2 py-2 text-dark transition-colors duration-200 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 shadow focus:ring focus:ring-blue-300 focus:ring-opacity-40 font-bold"
+            >
+              参加
+            </button>
+
+            <button
+              class="w-full px-2 py-2 text-dark transition-colors duration-200 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 shadow focus:ring focus:ring-blue-300 focus:ring-opacity-40 font-bold"
+            >
+              不参加
+            </button>
+            <button
+              class="w-full px-2 py-2 text-dark transition-colors duration-200 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 shadow focus:ring focus:ring-blue-300 focus:ring-opacity-40 font-bold"
+            >
+              提出済み
+            </button>
+            <button
+              class="w-full px-2 py-2 text-dark transition-colors duration-200 transform bg-white rounded-md focus:outline-none sm:w-auto sm:mx-1 shadow focus:ring focus:ring-blue-300 focus:ring-opacity-40 font-bold"
+            >
+              未回答
+            </button>
+          </div>
+          <p class="text-left mt-5">一覧</p>
+          <a
+            href="#"
+            class="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 text-left mt-2 flex justify-between"
+          >
+            <div>
+              <h6
+                class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                かださぽ
+              </h6>
+              <p class="font-normal text-gray-700 dark:text-gray-400">
+                2022年06月18日（土）
+              </p>
+              <p class="font-normal text-gray-600 dark:text-gray-400 text-xs">
+                10:00~12:00
+              </p>
+            </div>
+            <div class="flex flex-col justify-between">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 inline"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span> 不参加 </span>
+              </div>
+              <p class="font-normal text-gray-700 dark:text-gray-400">
+                20人参加 ＞
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
