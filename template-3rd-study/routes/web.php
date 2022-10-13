@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/webapp/{user_id?}', 'WebAppController@index')->middleware('auth')->name('webapp');
+Route::post('/study_time_post', 'WebAppController@store')->middleware('auth')->name('webapp_post');
 
 Auth::routes();
 

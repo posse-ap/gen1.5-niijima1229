@@ -22,8 +22,8 @@ class WebAppController extends Controller
      */
     public function index($user_id)
     {
-        $user = User::get();
-        $today=Carbon::today();
+        $user = User::find($user_id);
+        $today = Carbon::today();
         $today_learning_language_time = LanguageLearningRecord::where('user_id', $user_id)->where('learning_date', $today)->sum('learning_time');
         $today_learning_content_time = ContentLearningRecord::where('user_id', $user_id)->where('learning_date', $today)->sum('learning_time');
         $month_learning_language_time = LanguageLearningRecord::where('user_id', $user_id)->whereMonth('learning_date', $today->month)->sum('learning_time');
@@ -39,23 +39,22 @@ class WebAppController extends Controller
         $aggregate_learning_contents = ContentLearningRecord::select(DB::raw("sum(learning_time) as total_content_learning_time,learning_content_id"))->groupBy("learning_content_id")->get();
 
         $per_day_learning_language_times = LanguageLearningRecord::select(DB::raw("sum(learning_time) as total_language_learning_time,learning_date"))
-        ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
-        ->groupBy("learning_date")->get();
+            ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
+            ->groupBy("learning_date")->get();
         $per_day_learning_content_times = ContentLearningRecord::select(DB::raw("sum(learning_time) as total_content_learning_time,learning_date"))
-        ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
-        ->groupBy("learning_date")->get();
+            ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
+            ->groupBy("learning_date")->get();
         $sums = array();
         foreach (CarbonPeriod::create($today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d'))->toArray() as $date) {
-            $per_day_learning_language_time = $per_day_learning_language_times->filter(function($value, $key) use($date){
+            $per_day_learning_language_time = $per_day_learning_language_times->filter(function ($value, $key) use ($date) {
                 return ($value->learning_date == $date->format('Y-m-d'));
             });
 
-            $per_day_learning_content_time = $per_day_learning_content_times->filter(function($value, $key) use($date){
+            $per_day_learning_content_time = $per_day_learning_content_times->filter(function ($value, $key) use ($date) {
                 return ($value->learning_date == $date->format('Y-m-d'));
             });
 
             $sums[$date->format('Y-m-d')] = ($per_day_learning_language_time->isEmpty() ? 0 : $per_day_learning_language_time->first()->total_language_learning_time) + ($per_day_learning_content_time->isEmpty() ? 0 : $per_day_learning_content_time->first()->total_content_learning_time);
-
         }
         return view('index', [
             'user' => $user,
@@ -90,7 +89,28 @@ class WebAppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $total = count($request->learning_content_ids) + count($request->learning_language_ids);
+        $study_time = $request->study_time / $total;
+        if (count($request->learning_content_ids) > 0) {
+            foreach ($request->learning_content_ids as $id) {
+                $content = new ContentLearningRecord();
+                $content->user_id = Auth::id();
+                $content->learning_content_id = $id;
+                $content->learning_time = $study_time;
+                $content->learning_date = $request->study_date;
+                $content->save();
+            }
+        }
+        if (count($request->learning_language_ids) > 0) {
+            foreach ($request->learning_language_ids as $id) {
+                $language = new LanguageLearningRecord();
+                $language->user_id = Auth::id();
+                $language->learning_language_id = $id;
+                $language->learning_time = $study_time;
+                $language->learning_date = $request->study_date;
+                $language->save();
+            }
+        }
     }
 
     /**

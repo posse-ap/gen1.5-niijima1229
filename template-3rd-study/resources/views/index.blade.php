@@ -21,10 +21,30 @@
     <link rel="stylesheet" href="//unpkg.com/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src="//unpkg.com/flatpickr"></script>
-    <script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+        .error-container {
+            display: none;
+        }
+        .error-color{
+            padding-top: 200px;
+            color: #f4bd67;
+        }
 
-    </script>
+        .error-mark{
+            width: 60px;
+            height: 60px;
+            background-color: #f4bd67;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 40px;
+        }
 
+        .error-text{
+            font-size: 13px;
+        }
+    </style>
     <title>Document</title>
 </head>
 
@@ -160,7 +180,7 @@
                             <div class="col-lg col-md-12">
                                 <div class="mb-3">
                                     <label class="form-label">学習時間</label>
-                                    <input type="number" class="form-control bg-light border-0" name="learning_time">
+                                    <input type="number" class="form-control bg-light border-0" name="learning_time" id="learning_time">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Twitter用コメント</label>
@@ -172,9 +192,11 @@
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" onclick="submit_loading()" id="submit_btn" class="shadow-lg p-3 px-5 my-3 w-50 mx-auto btn_submit border-0">
-                            記録・投稿
-                        </button>
+                        <div style="text-align: center">
+                            <button type="submit" onclick="submit_loading()" id="submit_btn" class="shadow-lg p-3 px-5 my-3  mx-auto btn_submit border-0" >
+                                記録・投稿
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <div id="modal_loading" class="modal-body container-fluid modal-loading">
@@ -195,10 +217,66 @@
                         </div>
                     </div>
                 </div>
+                <div class="error-container text-center" id="modal_error">
+                    <p class="error-color mb-1">ERROR</p>
+                    <p class="error-mark mx-auto mb-3">!</p>
+                    <p class="error-text">一時的にご利用できない状態です。<br>しばらく経ってから<br>再度アクセスしてください。</p>
+                </div>
             </div>
         </div>
     </div>
-
+    <script>
+        const submit_btn = document.getElementById("submit_btn");
+        const modal_default = document.getElementById("modal_default");
+        const modal_loading = document.getElementById("modal_loading");
+        const modal_done = document.getElementById("modal_done");
+        const modal_error = document.getElementById("modal_error");
+        var study_time = $('#submit_btn');
+        study_time.on('click', function () {
+            modal_default.style.display = "none";
+            modal_loading.style.display = "block";
+            var learning_content_ids = $('input[name=learning_content_id]:checked').map(function(){
+                return $(this).val();
+            }).get();
+            var learning_langage_ids = $('input[name=learning_langage_id]:checked').map(function(){
+                return $(this).val();
+            }).get();
+            var study_time = document.getElementById("learning_time").value;
+            var calendar = document.getElementById("calendar").value;
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/study_time_post',
+              //routeの記述
+                type: 'POST',
+              //受け取り方法の記述（GETもある）
+                data: {
+                    learning_content_ids: learning_content_ids,
+                    learning_language_ids: learning_langage_ids,
+                    study_time: study_time,
+                    study_date: calendar,
+                }
+            }) // Ajaxリクエストが成功した場合
+            .done(function () {
+                modal_loading.style.display = "none";
+                modal_done.style.display = "block";
+                // var total_study_time = $('#total_study_time_week' + week_id);
+                // var assignment_time = parseInt($('#assignment_time_week' + week_id).val());
+                // var review_time = parseInt($('#review_time_week' + week_id).val());
+                // total_study_time.text(assignment_time + review_time);
+            }) // Ajaxリクエストが失敗した場合
+            .fail(function (data, xhr, err) {
+              //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。
+              //とりあえず下記のように記述しておけばエラー内容が詳しくわかります。笑
+                modal_loading.style.display = "none";
+                modal_error.style.display = "block";
+                console.log(err);
+                console.log(xhr);
+            });
+            return false;
+        });
+    </script>
     <script src="{{ asset('/js/posse.js') }}"></script>
     <script src="{{ asset('/js/calendar.js') }}"></script>
     <script>
@@ -222,7 +300,6 @@
                 datasets: [{
                     label: [],
                     data: [
-                        10,
                         @foreach ($per_day_learning_times as $per_day_learning_time)
                         {{ $per_day_learning_time }},
                         @endforeach

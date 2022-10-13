@@ -6,12 +6,13 @@ volumes:
 
 services:
   db:
-    build:
-      context: ./db
+    image: mysql/mysql-server:latest
+    platform: linux/arm64/v8
     ports:
       - 3306:3306
     volumes:
       - ./db/var/lib/mysql:/var/lib/mysql
+      - ./db/etc/my.cnf:/etc/my.cnf
     environment:
       - MYSQL_DATABASE=laravel
       - MYSQL_USER=laravel
