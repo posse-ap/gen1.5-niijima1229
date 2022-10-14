@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class WebAppController extends Controller
 {
@@ -130,9 +131,10 @@ class WebAppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function user_edit()
     {
-        //
+        $user = User::find(Auth::id());
+        return view('user_update', compact('user'));
     }
 
     /**
@@ -142,9 +144,13 @@ class WebAppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function user_update(Request $request)
     {
-        //
+        $user = User::find(Auth::id());
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->save();
+        return redirect(route('webapp', ['user_id' => Auth::id()]));
     }
 
     /**
@@ -153,8 +159,9 @@ class WebAppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function user_destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect(route('home'));
     }
 }

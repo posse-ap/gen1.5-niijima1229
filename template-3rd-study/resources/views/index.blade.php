@@ -57,6 +57,7 @@
                     4th week
                 </span>
             </a>
+            <a href="{{route('user_edit')}}">編集</a>
             <button type="button" class="shadow-lg p-3 btn_submit d-none d-md-block border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 記録・投稿
             </button>
@@ -89,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12" style="background-color:white;" class="rounded">
+                <div style="background-color:white;" class="rounded">
                     {{-- <div id="columnchart_values" class="d-flex align-items-center rounded"></div> --}}
                     <canvas id="monthChart"></canvas>
                 </div>
