@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/news/{id}', 'NewsController@detail')->name('news_detail');
+
 Route::get('/webapp', 'WebAppController@index')->middleware('auth')->name('webapp');
 Route::post('/study_time_post', 'WebAppController@store')->middleware('auth')->name('webapp_post');
 Route::get('/user_update', 'WebAppController@user_edit')->middleware('auth')->name('user_edit');
