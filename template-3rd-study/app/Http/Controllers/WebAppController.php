@@ -21,8 +21,9 @@ class WebAppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($user_id)
+    public function index()
     {
+        $user_id = Auth::id();
         $user = User::find($user_id);
         $today = Carbon::today();
         $today_learning_language_time = LanguageLearningRecord::where('user_id', $user_id)->where('learning_date', $today)->sum('learning_time');
@@ -34,15 +35,35 @@ class WebAppController extends Controller
 
         $language_learning_records = LanguageLearningRecord::where('user_id', $user_id)->get();
         $content_learning_records = ContentLearningRecord::where('user_id', $user_id)->get();
-        $learning_languages = LearningLanguage::all();
-        $learning_contents = LearningContent::all();
-        $aggregate_learning_languages = LanguageLearningRecord::select(DB::raw("sum(learning_time) as total_language_learning_time,learning_language_id"))->groupBy("learning_language_id")->get();
-        $aggregate_learning_contents = ContentLearningRecord::select(DB::raw("sum(learning_time) as total_content_learning_time,learning_content_id"))->groupBy("learning_content_id")->get();
+        $learning_languages = LearningLanguage::get();
+        for ($i = 0; $i < count($learning_languages); $i++) {
+            for ($j = $i + 1; $j < count($learning_languages); $j++) {
+                if ($learning_languages[$j]->StudyTime() > $learning_languages[$i]->StudyTime()) {
+                    $tmp = $learning_languages[$j];
+                    $learning_languages[$j] = $learning_languages[$i];
+                    $learning_languages[$i] = $tmp;
+                }
+            }
+        }
+        $learning_contents = LearningContent::get();
+        for ($i = 0; $i < count($learning_contents); $i++) {
+            for ($j = $i + 1; $j < count($learning_contents); $j++) {
+                if ($learning_contents[$j]->StudyTime() > $learning_contents[$i]->StudyTime()) {
+                    $tmp = $learning_contents[$j];
+                    $learning_contents[$j] = $learning_contents[$i];
+                    $learning_contents[$i] = $tmp;
+                }
+            }
+        }
+        $modal_learning_languages = LearningLanguage::where('status', 1)->get();
+        $modal_learning_contents = LearningContent::where('status', 1)->get();
+        $aggregate_learning_languages = LanguageLearningRecord::where('user_id', $user_id)->select(DB::raw("sum(learning_time) as total_language_learning_time,learning_language_id"))->groupBy("learning_language_id")->orderby('total_language_learning_time', 'desc')->get();
+        $aggregate_learning_contents = ContentLearningRecord::where('user_id', $user_id)->select(DB::raw("sum(learning_time) as total_content_learning_time,learning_content_id"))->groupBy("learning_content_id")->orderby('total_content_learning_time', 'desc')->get();
 
-        $per_day_learning_language_times = LanguageLearningRecord::select(DB::raw("sum(learning_time) as total_language_learning_time,learning_date"))
+        $per_day_learning_language_times = LanguageLearningRecord::where('user_id', $user_id)->select(DB::raw("sum(learning_time) as total_language_learning_time,learning_date"))
             ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
             ->groupBy("learning_date")->get();
-        $per_day_learning_content_times = ContentLearningRecord::select(DB::raw("sum(learning_time) as total_content_learning_time,learning_date"))
+        $per_day_learning_content_times = ContentLearningRecord::where('user_id', $user_id)->select(DB::raw("sum(learning_time) as total_content_learning_time,learning_date"))
             ->whereBetween('learning_date', [$today->startOfMonth()->format('Y-m-d'), $today->endOfMonth()->format('Y-m-d')])
             ->groupBy("learning_date")->get();
         $sums = array();
@@ -66,6 +87,8 @@ class WebAppController extends Controller
             'content_learning_records' => $content_learning_records,
             'learning_languages' => $learning_languages,
             'learning_contents' => $learning_contents,
+            'modal_learning_languages' => $modal_learning_languages,
+            'modal_learning_contents' => $modal_learning_contents,
             'aggregate_learning_languages' => $aggregate_learning_languages,
             'aggregate_learning_contents' => $aggregate_learning_contents,
             'per_day_learning_times' => $sums
@@ -90,9 +113,15 @@ class WebAppController extends Controller
      */
     public function store(Request $request)
     {
-        $total = count($request->learning_content_ids) + count($request->learning_language_ids);
+        if ($request->learning_content_ids && $request->learning_language_ids) {
+            $total = count($request->learning_content_ids) + count($request->learning_language_ids);
+        } else if ($request->learning_content_ids) {
+            $total = count($request->learning_content_ids);
+        } else if ($request->learning_language_ids) {
+            $total = count($request->learning_language_ids);
+        }
         $study_time = $request->study_time / $total;
-        if (count($request->learning_content_ids) > 0) {
+        if ($request->learning_content_ids && count($request->learning_content_ids) > 0) {
             foreach ($request->learning_content_ids as $id) {
                 $content = new ContentLearningRecord();
                 $content->user_id = Auth::id();
@@ -102,7 +131,7 @@ class WebAppController extends Controller
                 $content->save();
             }
         }
-        if (count($request->learning_language_ids) > 0) {
+        if ($request->learning_language_ids && count($request->learning_language_ids) > 0) {
             foreach ($request->learning_language_ids as $id) {
                 $language = new LanguageLearningRecord();
                 $language->user_id = Auth::id();

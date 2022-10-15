@@ -65,6 +65,11 @@
     </nav>
 
     <main class="mt-3 container-fluid">
+        @if (session('flash_message'))
+            <div class="flash_message">
+                {{ session('flash_message') }}
+            </div>
+        @endif
         <div class="row d-flex flex-wrap mx-md-5">
             <div class="col-lg col-md-12 d-flex flex-column justify-content-between container-fluid mb-5 mb-lg-0">
                 <div class="row m-0 mb-2 justify-content-between">
@@ -101,7 +106,7 @@
                         <h5 class="mt-4 card-title">学習言語</h5>
                         <div class="my-5" id="donutchart_lang"></div>
                         <div class="card-body d-flex flex-wrap">
-                            @foreach ($learning_languages as $learning_language)
+                            @foreach ($modal_learning_languages as $learning_language)
                                 <div class="me-2"><i class="fas fa-circle"
                                         style="color:{{ $learning_language->color }}"></i>{{ $learning_language->name }}
                                 </div>
@@ -112,7 +117,7 @@
                         <h5 class="mt-4 card-title">学習コンテンツ</h5>
                         <div class="my-5" id="donutchart_cont"></div>
                         <div class="card-body">
-                            @foreach ($learning_contents as $learning_content)
+                            @foreach ($modal_learning_contents as $learning_content)
                                 <div class="me-2"><i class="fas fa-circle"
                                         style="color:{{ $learning_content->color }}"></i>{{ $learning_content->name }}
                                 </div>
@@ -394,7 +399,6 @@
                 @foreach ($aggregate_learning_contents as $aggregate_learning_content)
                     [{{ $aggregate_learning_content->name }}, {{ $aggregate_learning_content->total_content_learning_time }}],
                 @endforeach
-
             ]);
 
             var options = {

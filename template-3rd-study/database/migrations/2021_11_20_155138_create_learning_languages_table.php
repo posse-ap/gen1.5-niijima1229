@@ -17,6 +17,7 @@ class CreateLearningLanguagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('color');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
